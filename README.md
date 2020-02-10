@@ -1,0 +1,1 @@
+Create a directory named codeup-data-science within your home directory. This will be where you do all of your work at codeup.
