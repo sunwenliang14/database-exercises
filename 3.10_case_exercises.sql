@@ -96,4 +96,5 @@ SET avg_salary = '67709'
 WHERE 
 dept_group = 'Prod & QM';
 
+
 SELECT * FROM avg_salary_for_each_dept;
