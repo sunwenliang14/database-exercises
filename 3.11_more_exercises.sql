@@ -147,3 +147,51 @@ JOIN city USING (city_id)
 JOIN country USING (country_id);
 
 -- List the top five genres in gross revenue in descending order. (Hint: you may need to use the following tables: category, film_category, inventory, payment, and rental.)
+
+SELECT * FROM actor;
+SELECT last_name FROM actor;
+SELECT DISTINCT last_name FROM actor;
+SELECT DISTINCT postal_code FROM address;
+SELECT DISTINCT rating FROM film;
+
+SELECT title, description, rating, length FROM film WHERE length >= 3 * 60;
+SELECT payment_id, amount, payment_date FROM payment WHERE payment_date >= 05/27/2005; 
+-- Select the primary key, amount, and payment date columns from the payment table for payments made on 05/27/2005
+SELECT  payment_id, amount, payment_date FROM payment  WHERE payment_date = '2005-05-27';
+SELECT * FROM customer WHERE last_name LIKE 's%' AND first_name LIKE '%n';
+SELECT * FROM customer WHERE active = '0' OR last_name LIKE 'm%';
+SELECT * FROM category WHERE category_id > 4 AND (NAME LIKE 'c%' OR NAME LIKE 's%' OR NAME LIKE 't%');
+-- Select all columns minus the password column from the staff table for rows that contain a password.
+SELECT * FROM staff WHERE PASSWORD IS NULL;
+SELECT * FROM staff WHERE PASSWORD IS NOT NULL;
+
+SELECT payment_id, amount, payment_date FROM payment WHERE DATE(payment_date) IN ('2005-05-25', '2005-05-27', '2005-05-29');
+SELECT * FROM film WHERE rating IN ('G', 'PG-13', 'NC-17');
+
+SELECT * FROM payment WHERE payment_date BETWEEN '2005-05-25 00:00:00' AND '2005-05-25 23:59:59';
+
+SELECT * FROM film WHERE length BETWEEN '100' AND '120';
+
+SELECT * FROM film WHERE description LIKE 'A Thoughtful%';
+
+SELECT * FROM film WHERE description  LIKE '%boat';
+
+SELECT * FROM film WHERE description LIKE '%database%' AND length > 180;
+
+SELECT * FROM payment LIMIT 20;
+
+-- SELECT the payment DATE AND amount COLUMNS FROM the payment TABLE FOR ROWS WHERE the payment amount IS greater THAN 5, AND only SELECT ROWS whose zero-based INDEX IN the result SET IS BETWEEN 1000-2000
+SELECT payment_date, amount FROM payment WHERE amount > '5' LIMIT 1001 OFFSET 999;
+
+SELECT * FROM customer LIMIT 100 OFFSET 101;
+
+
+SELECT * FROM film ORDER BY length;
+
+
+SELECT DISTINCT rating FROM film ORDER BY rating DESC;
+
+SELECT payment_date, amount FROM payment ORDER BY amount DESC LIMIT 20;
+
+SELECT title, description, special_features, length, rental_duration FROM film WHERE length < 120 AND rental_duration BETWEEN 5 AND 7 ORDER BY length DESC LIMIT 10;
+
